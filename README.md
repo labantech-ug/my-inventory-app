@@ -1,1 +1,1 @@
-# my-inventory-app
+# my app
