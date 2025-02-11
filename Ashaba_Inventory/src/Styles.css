@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define custom classes using Tailwind utilities */
+.dashboard-container {
+  @apply min-h-screen bg-gray-100;
+}
+
+.dashboard-header {
+  @apply flex justify-between items-center p-4 bg-sky-950;
+}
+
+.dashboard-title {
+  @apply text-xl font-bold text-white;
+}
+
+.nav-container {
+  @apply w-1/5 bg-white shadow-md;
+}
+
+.nav-item {
+  @apply block p-2 w-full text-left hover:bg-pink-900;
+}
+
+.main-content {
+  @apply flex-1 p-6;
+}
+
+.content-box {
+  @apply bg-white p-4 rounded shadow-md;
+}
+
+.notifications {
+  @apply absolute top-10 right-0 bg-white border border-gray-300 rounded shadow-lg w-80 z-50 p-4;
+}
+
+.profile-menu {
+  @apply absolute top-10 right-0 bg-white border border-gray-300 rounded shadow-lg w-40 z-50;
+}
+
+.profile-menu-item {
+  @apply p-2 hover:bg-gray-100;
+}

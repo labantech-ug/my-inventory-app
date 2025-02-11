@@ -1,0 +1,50 @@
+datasource db {
+  provider = "sqlite" 
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  username  String
+  email     String    @unique
+  password  String
+  role      String
+  sales     Sale[]    // Relation to Sale
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+
+model Sale {
+  id             Int       @id @default(autoincrement())
+  itemName       String
+  quantity       Int
+  priceBought    Float
+  priceSold      Float
+  remainingStock Int
+  userId         Int
+  user           User      @relation(fields: [userId], references: [id]) // Relation to User
+  updatedAt      DateTime  @default(now())
+}
+
+
+model Inventory {
+  id          Int       @id @default(autoincrement())
+  itemName    String    @unique // Ensure unique item names
+  quantity    Int
+  priceBought Float
+  priceSold   Float     @default(0)
+  updatedAt   DateTime  @default(now())
+}
+
+model Notification {
+  id         Int      @id @default(autoincrement())
+  message    String
+  type       String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
